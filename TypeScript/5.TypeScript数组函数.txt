@@ -1,0 +1,25 @@
+数组
+    定义数组 let arr: number[] = [1, 2]; let arr: Array<number> = [1, 2];
+    遍历数组for(i in arr) arr[i] 解构 var[x,y] = arr 
+    多维数组var marr:number[][] = [[1,2,3],[23,24,25]]  marr[1][2] 
+    数组为参数
+函数 
+     /** 敲回车会出现注释
+   定义function f1(a: string, b?: string) { console.log(`a + b = ${a + b}`); }
+   函数的缺省值 b: string="cjy"
+   联合类型为参数...args: string[] | number[]    
+   es6
+       函数重载：名称相同类型不同
+作业
+  1.定义数组1,7,9,2,3,4并遍历该数组
+  2.定义学生类型Student 存放学生的基本情况
+    id字符或数字 name字符 age可选数字 score成绩数字  学历degree可选枚举{本科专科高中} 性别sex可选{男女}
+  3.定义学生类型的数组
+  4.定义4个函数
+      增加function addStudent(st:Student)
+     修改modiStudent(st:Student)
+      删除delStudent(id:number)
+      caclScore()统计成绩
+  5.写类Student类
+     属性为 id字符或数字 name字符  score成绩  性别sex可选{男女}
+     方法为add modi del不实现

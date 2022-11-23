@@ -1,0 +1,97 @@
+TypeScript 是 JavaScript 的一个超集，支持 ECMAScript 6 标准
+
+ts文件只要在同一个目录下，文件里面只要变量相同，哪怕不同文件，报错。
+tsc+文件名运行编译文件报错的话，用tsc全编译
+
+选择TypeScript的理由：具有静态类型的 JavaScript 
+好处:避免经典的错误 'undefined' is not a function。 重构代码更容易。 源码更易阅读
+安装 typescript：
+    npm install -g typescript;
+   $ tsc -v;
+    tsc app.ts编译为js文件;
+   node app.js运行
+
+基本类型
+   number 64 位浮点值 没有整型  
+   字符串string   ' "`   
+   布尔boolean:true/false
+   类型推断var num = 2; num="12"错误  
+   强制转换num=<number><any>'124'
+
+   any 允许任何类型  是任意类型的父类型，同时也任意类型的子类型 (无形中失去了 Typescript 给我们带来的类型安全性)
+
+   unknown确保用此类型的人声明类型  是任意类型的父类型，但仅此而已 (可以限制某些变量的行为，使我们的编码习惯更加谨慎)
+
+   never永不存在值的类型如将引发异常的函数。
+
+   void 函数没有返回值  null对象值缺失 undefined未定义的值
+组合类型
+    元组 let x: [string, number];   
+    联合类型var x:string | number  
+                 var arr:number[]|string[]; 
+    枚举enum Color {Red, Green, Blue}; 
+                    let c: Color = Color.Blue;
+    自定义类型type Deg = "A" | "B" | "C";
+作业
+   1.typescript是什么？为什么要学ts
+ TypeScript是JavaScript的一个超集，也支持es6。
+ 为什么学？：(1)ts比js多了许多语法、保证结果安全的类型检查;(2)具有静态类型的JavaScript;(3)避免经典的错误"undefined is not a function";(4)重构代码更容易。(5)源码更易阅读
+
+   2.编程完成下面任务
+      x1,x2,x3定义为数字类型 s1,s2,s3定义为字符串类型
+ var x1: number, x2: number, x3: number;
+ var s1: String, s2: String, s3: String;
+
+      let s4="456" 把s4转为number类型赋给x3 
+ let s4 = "456";
+ x3 = <number>(<any>s4); 
+
+      定义a1为any a2为unknown a3为never
+      a1=10;a1="12";a2=true;a3=undefined  这一行那个语句有错
+ a3=undefined错，a3类型是永不存在值得类型，不能有=号
+
+    3.解释下面类型的意思
+      any unknown never void undefined null
+
+ any是任何类型的父类型，同时也是任意类型的子类型(any失去了typescript给我们的类型安全性)
+ unknown是任何类型的父类型，仅此而已(没有失去安全性,可以限制某些变量的行文，使我们的编码习惯更加严谨)
+ never 永不存在值的类型 如将引发异常的函数
+ void 函数没有返回值 null对象值缺失 undefined未定义的值
+
+    4.定义元素类型
+       age为字符串数字的元组
+       id的类型可能是number,string,undefined
+  var age:[String,number];
+  age=['age',23];
+
+  var id:number|string|undefined;
+  id=1999;id='10',id=undefined;//id=null;//报错
+
+     5.定义枚举
+        DIR方向{UP,LEFT,DOWN,RIGTH}让变量move为DIR类型中的UP
+        COLOR{RED='#f00',GREEN='#0f0',BLUE='#00f'}
+
+    enum DIR{UP,LEFT,DOWN,RIGTH='右边'}
+    let move:DIR=DIR.UP;
+    //let move2:DIR='LEFT';//报错
+    let move3:DIR=DIR.LEFT;
+    let move4:DIR=DIR.RIGTH;
+
+    enum COLOR{RED='#F00',GREEN='#0F0',BLUE='#00F'}
+    let colors:COLOR=COLOR.GREEN
+
+    console.log(move,move3,move4,colors)//0 1 右边 #0F0
+
+     6.自定义类型
+        性别Sex为男女   学历Degtree为本科大专高中
+
+    type Sex='男'|'女';
+    type Degtree='本科'|'大专'|'高中'
+
+    var sex:Sex//='男';
+    sex='女';sex='男';//sex='无性';//报错
+
+    var deg:Degtree;
+    deg='高中';//deg='初中';//报错
+        
+     
